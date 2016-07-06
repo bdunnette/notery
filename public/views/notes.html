@@ -1,0 +1,32 @@
+<div >
+    <form name="userForm" ng-submit="saveNote(editingNote); resetEditingNote()">
+      <div layout-gt-xs="row">
+        <div flex-gt-xs="50">
+            <md-input-container class="md-block">
+                <label>Front</label>
+                <textarea ng-model="editingNote.front.text" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+            </md-input-container>
+        </div>
+        <div flex-gt-xs="50">
+            <md-input-container class="md-block" >
+                <label>Back</label>
+                <textarea ng-model="editingNote.back.text" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+            </md-input-container>
+        </div>
+        <input type="submit" id="submit" value="Submit" />
+      </div>
+    </form>
+</div>
+
+<div flex-xs="" flex-gt-xs="50" layout="column">
+    <md-card ng-repeat="note in notes" ng-click="editNote(note)">
+        <md-card-content>
+            <p>
+                {{note.front.text}}
+            </p>
+            <p>
+                {{note.back.text}}
+            </p>
+        </md-card-content>
+    </md-card>
+</div>
